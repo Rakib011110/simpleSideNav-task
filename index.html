@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Left Panel Example</title>
+    <style>
+      body {
+        display: flex;
+        height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      #left-panel {
+        background-color: #333;
+        padding: 20px;
+        min-width: 200px;
+        color: #fff;
+      }
+
+      #content {
+        flex: 1;
+        padding: 20px;
+        max-width: 1440px;
+        margin: 0 auto;
+      }
+
+      .component {
+        cursor: pointer;
+        margin-bottom: 10px;
+        padding: 10px;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+      }
+
+      .component:hover {
+        background-color: #555;
+      }
+
+      #home-content {
+        display: none;
+        text-align: center;
+      }
+
+      #contact-content {
+        display: none;
+      }
+
+      #information-content {
+        display: none;
+      }
+
+      #guide-content {
+        display: none;
+      }
+
+      .card {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 10px;
+        background-color: #f9f9f9;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .card img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      .card-content {
+        padding: 10px;
+      }
+
+      .banner {
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+        height: 200px;
+        margin-bottom: 20px;
+        background-image: url("https://t4.ftcdn.net/jpg/02/73/60/05/360_F_273600559_5bjALBAiuWh1Vwo2iFWbnow2exnc2M1x.jpg");
+        background-size: cover;
+        background-position: center;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+
+      .banner h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+
+      .banner p {
+        font-size: 16px;
+      }
+
+      @media screen and (min-width: 768px) {
+        .card {
+          flex-direction: row;
+        }
+
+        .card img {
+          flex: 0 0 200px;
+          margin-right: 10px;
+        }
+      }
+    </style>
+    <script>
+      function showContent(component) {
+        var contentDivs = document.getElementsByClassName("content");
+
+        for (var i = 0; i < contentDivs.length; i++) {
+          contentDivs[i].style.display = "none";
+        }
+
+        var componentId = component.getAttribute("data-target");
+        var contentToShow = document.getElementById(componentId);
+        contentToShow.style.display = "block";
+      }
+    </script>
+  </head>
+  <body>
+    <div id="left-panel">
+      <div
+        class="component"
+        onclick="showContent(this)"
+        data-target="home-content"
+      >
+        Home
+      </div>
+      <div
+        class="component"
+        onclick="showContent(this)"
+        data-target="contact-content"
+      >
+        Contact
+      </div>
+      <div
+        class="component"
+        onclick="showContent(this)"
+        data-target="information-content"
+      >
+        Information
+      </div>
+      <div
+        class="component"
+        onclick="showContent(this)"
+        data-target="guide-content"
+      >
+        Guide
+      </div>
+    </div>
+    <div id="content">
+      <div id="home-content" class="content">
+        <div class="banner">
+          <div>
+            <h2>Welcome to the Home Page!</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Vestibulum rutrum, libero et vestibulum iaculis, nisi turpis
+              ultricies enim, a blandit erat odio eu nisi.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div id="contact-content" class="content">
+        <h2>Contact Information</h2>
+        <div class="card">
+          <img
+            src="https://as2.ftcdn.net/v2/jpg/02/98/93/01/1000_F_298930114_xwrMvhXOnebcULZFlIpHWR4jzcl23FUr.jpg"
+            alt="Example Image 5"
+          />
+          <div class="card-content">
+            <h3>Card Contact</h3>
+            <p>This is the content for Card in the Contact page.</p>
+          </div>
+        </div>
+      </div>
+      <div id="information-content" class="content">
+        <h2>Information</h2>
+        <div class="card">
+          <img
+            src="https://media.istockphoto.com/id/1358091848/photo/corporate-data-management-system-and-document-management-system-with-employee-privacy.jpg?s=612x612&w=0&k=20&c=STm4rk-rTAGtjfd1OqFlHrRgUweQNSHtxl03uqhU5II="
+            alt="Example Image 9"
+          />
+          <div class="card-content">
+            <h3>Card Information</h3>
+            <p>This is the content for Card in the Information page.</p>
+          </div>
+        </div>
+      </div>
+      <div id="guide-content" class="content">
+        <h2>Guide</h2>
+        <div class="card">
+          <img
+            src="https://media.istockphoto.com/id/1358091848/photo/corporate-data-management-system-and-document-management-system-with-employee-privacy.jpg?s=612x612&w=0&k=20&c=STm4rk-rTAGtjfd1OqFlHrRgUweQNSHtxl03uqhU5II="
+            alt="Example Image 13"
+          />
+          <div class="card-content">
+            <h3>Card Guide</h3>
+            <p>This is the content for Card in the Guide page.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
